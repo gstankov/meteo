@@ -13,7 +13,7 @@
                 padding: 5px; margin: 2px;
             }
         </style>
-        <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+        <link rel="shortcut icon" type="image/png" href="favicon.png" />
     </head>
     <body>
         <img src="http://api.sat24.com/" /><br />
