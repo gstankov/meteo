@@ -20,7 +20,8 @@
         <img src="http://vrijeme.hr/irc-anim.gif" /><br />
         <img src="http://vrijeme.hr/kradar-anim.gif" /><br />
         <img src='http://api.sat24.com/animated/EU/visual/1/Central%20European%20Standard%20Time/3118322' /><br />
-        <img src="https://images.lightningmaps.org/blitzortung/europe/index.php?animation=5" />
+        <img src="https://images.lightningmaps.org/blitzortung/europe/index.php?animation=5" /><br />
+        <img src="https://icons.wxug.com/data/640x480/2xeu_st_anim.gif" />
     </body>
 </html>
 
