@@ -1,4 +1,13 @@
 <?php
+
+    // Just headers
+    stream_context_set_default(
+        array(
+            'http' => array(
+                'method' => 'HEAD'
+            )
+        )
+    );
     
     // Link collection
     $links = [
@@ -15,10 +24,18 @@
     
     foreach ($links as $src) {
         
-        $sources[] = [
-            "link" => $src,
-            "info" => get_headers($src, 1)
-        ];
+        if ($info = get_headers($src, 1)) {
+            
+            $sources[] = [
+                "link" => $src,
+                "info" => $info
+            ];
+            
+        } else {
+            
+            $errors[$src];
+            
+        }
 
     }
     
@@ -26,8 +43,14 @@
     echo "<pre>";
     print_r($sources);
     echo "</pre>";
-    */
     
+    echo "<pre>";
+    print_r($errors);
+    echo "</pre>";
+    
+    exit();
+    */
+
 ?>
 <html>
     <head>
@@ -83,4 +106,3 @@
         
     </body>
 </html>
-
