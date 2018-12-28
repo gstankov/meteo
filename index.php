@@ -44,13 +44,15 @@
     print_r($sources);
     echo "</pre>";
     
-    echo "<pre>";
-    print_r($errors);
-    echo "</pre>";
+    // Display errors
+    if (isset($errors)) {
+        echo "<pre>";
+        print_r($errors);
+        echo "</pre>";
+    }
     
     exit();
     */
-
 ?>
 <html>
     <head>
@@ -62,6 +64,7 @@
                 background: #000;
                 width: 100%; text-align: center;
                 font-family: arial;
+                color: #F00;
             }
             body img {
                 width: 632px;
@@ -82,22 +85,22 @@
         <?php
             
             $out = '';
-            $size = 0;
+            $total = 0;
             
             foreach ($sources as $src) {
                 
                 $out.= '<div class="info">';
                     $out.= '<img src="'.$src['link'].'" /></br></br>';
                     $out.= $src['info']['Last-Modified'] . ", ";
-                    $out.= round($src['info']['Content-Length'] / (1024 * 1024), 2) . ' mb';
+                    if (isset($src['info']['Content-Length'])) $out.= round($src['info']['Content-Length'] / (1024 * 1024), 2) . ' mb';
                 $out.= '</div></br>';
                 
-                $size = $size + $src['info']['Content-Length'];
+                if (isset($src['info']['Content-Length'])) $total = $total + $src['info']['Content-Length'];
                 
             }
             
             $out.= '<div class="info">Total: ';
-                $out.= round($size / (1024 * 1024), 2) . ' mb';
+                $out.= round($total / (1024 * 1024), 2) . ' mb';
             $out.= '</div>';
             
             echo $out;
