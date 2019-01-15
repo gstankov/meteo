@@ -65,52 +65,64 @@
         
             body {
                 padding: 0px; margin: 0px;
-                background: #000;
                 width: 100%; text-align: center;
                 font-family: arial;
-                color: #F00;
+                background-color: #27aae2;
+                background-image: url('bckg.png');
             }
-            body img {
+            #main img {
                 width: 632px;
             }
             .info {
                 display: inline-block;
                 width: 632px;
-                color: green;
+                color: #FFF;
                 font-size: 10px;
-                border: 1px solid green;
+                border: 1px solid #FFF;
                 padding: 5px; margin: 2px;
+                background-color: #0164a7;
             }
+
         </style>
         <link rel="shortcut icon" type="image/png" href="favicon.png" />
         <link rel="apple-touch-icon" href="favicon.png" />
     </head>
     <body>
 
-        <?php
-            
-            $out = '';
-            $total = 0;
-            
-            foreach ($sources as $src) {
+        <img src="favicon.png" style="margin: 10px;" />
+
+        <div id="main">
+
+            <?php
                 
-                $out.= '<div class="info">';
-                    $out.= '<img src="'.$src['link'].'" /></br></br>';
-                    $out.= $src['info']['Last-Modified'] . ", ";
-                    if (isset($src['info']['Content-Length'])) $out.= round($src['info']['Content-Length'] / (1024 * 1024), 2) . ' mb';
-                $out.= '</div></br>';
+                /**
+                 * Display images with size info
+                 */
+
+                $out = '';
+                $total = 0;
                 
-                if (isset($src['info']['Content-Length'])) $total = $total + $src['info']['Content-Length'];
+                foreach ($sources as $src) {
+                    
+                    $out.= '<div class="info">';
+                        $out.= '<img src="'.$src['link'].'" /></br></br>';
+                        $out.= $src['info']['Last-Modified'] . ", ";
+                        if (isset($src['info']['Content-Length'])) $out.= round($src['info']['Content-Length'] / (1024 * 1024), 2) . ' mb';
+                    $out.= '</div></br>';
+                    
+                    if (isset($src['info']['Content-Length'])) $total = $total + $src['info']['Content-Length'];
+                    
+                }
                 
-            }
-            
-            $out.= '<div class="info">Total: ';
-                $out.= round($total / (1024 * 1024), 2) . ' mb';
-            $out.= '</div>';
-            
-            echo $out;
-            
-        ?>
+                $out.= '<div class="info">Total: ';
+                    $out.= round($total / (1024 * 1024), 2) . ' mb';
+                $out.= '</div>';
+                
+                echo $out;
+                
+            ?>
+
+        </div>
         
     </body>
 </html>
