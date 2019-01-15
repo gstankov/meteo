@@ -1,4 +1,9 @@
 <?php
+    
+    // Headers
+    header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+    header("Pragma: no-cache"); // HTTP 1.0.
+    header("Expires: 0"); // Proxies.
 
     // Just headers
     stream_context_set_default(
@@ -78,6 +83,7 @@
             }
         </style>
         <link rel="shortcut icon" type="image/png" href="favicon.png" />
+        <link rel="apple-touch-icon" href="favicon.png" />
     </head>
     <body>
 
