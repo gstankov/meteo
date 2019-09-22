@@ -20,7 +20,6 @@
         1 => "http://vrijeme.hr/kompozit-anim.gif",
         2 => "http://api.sat24.com/animated/EU/visual/1/Central%20European%20Standard%20Time/3118322",
         3 => "https://images.lightningmaps.org/blitzortung/europe/index.php?animation=5",
-        4 => "https://icons.wxug.com/data/640x480/2xeu_st_anim.gif",
     ];
     
     // From now on...
